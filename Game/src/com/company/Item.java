@@ -3,7 +3,7 @@ package com.company;
 public class Item {
     String name;
 
-    public boolean isMoveable() {
+    public boolean getMoveable() {
         return moveable;
     }
 

@@ -25,22 +25,18 @@ public class Player {
             System.out.println("Вы не можете туда пойти.");
         }
     }
-    public void take(String itemName) {
-        boolean takeI = false;
-        for (int i = 0; i < location.inventory.show().length(); i++) {
-            if (location.inventory.items != null) {
-                if (location.inventory.find(itemName)!=-1) {
-                    inventory.add(location.inventory.items.get(location.inventory.find(itemName)));
-                    location.inventory.remove(itemName);
-                    takeI=true;
-                }
+        public void take(String itemName) {
+                int id = location.inventory.find(itemName);
+                    if (id!=-1) {
+                        Item  item = location.inventory.items.get(location.inventory.find(itemName));
+                        inventory.add(item.getName(),item.getDescription(),item.getMoveable());
+                        location.inventory.items.remove(id);
+            }
+            else {
+                System.out.println("Здесь нет данного предмета ");
+
             }
         }
-        if (takeI==false){
-            System.out.println("Здесь нет данного предмета ");
-
-        }
-    }
 
 
 

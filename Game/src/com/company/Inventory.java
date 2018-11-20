@@ -5,9 +5,17 @@ import java.util.List;
 public class Inventory {
 
 
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
     public List<Item> items;
 
-    public void add(Item item) {
+    public void add(String name, String description,boolean moveable) {
+        Item item=new Item();
+        item.setName(name);
+        item.setDescription(description);
+        item.setMoveable(moveable);
         items.add(item);
     }
     public int find(String itemName){
@@ -24,11 +32,11 @@ public class Inventory {
 
     public  String show() {
         String Its = "";
-
+        Item item=new Item();
         if (items == null) {
             return "Ничего нет.";
         } else {
-            return items.toString();
+            return item.getName();
         }
     }
 }
